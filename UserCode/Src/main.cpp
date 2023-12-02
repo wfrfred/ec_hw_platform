@@ -6,6 +6,6 @@
 
 Remote remote;
 
-void init(){
+void init() {
     remote.init();
 }
