@@ -3,6 +3,10 @@
 //
 #include "../Inc/RemoteControl.h"
 
+float normalize(uint16_t input){
+    return ((float)input - MID_VALUE) / (MID_VALUE - MIN_VALUE);
+}
+
 void Remote::init() {
     for(auto& channel : channels){
         channel = 0;
@@ -29,8 +33,8 @@ void Remote::stop() {
     switches[1] = MID;
 }
 
-uint16_t Remote::getChannel(uint8_t index) const {
-    return channels[index];
+float Remote::getChannel(uint8_t index) const {
+    return normalize(channels[index]);
 }
 
 Remote::switchPosition Remote::getSwitches(uint8_t index) const {
