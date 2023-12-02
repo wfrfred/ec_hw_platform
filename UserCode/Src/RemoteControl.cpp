@@ -4,7 +4,11 @@
 #include "../Inc/RemoteControl.h"
 
 void Remote::init() {
-
+    for(auto& channel : channels){
+        channel = 0;
+    }
+    switches[0] = MID;
+    switches[1] = MID;
 }
 
 void Remote::handle(uint8_t rx_data[]) {
