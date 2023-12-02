@@ -4,8 +4,8 @@
 
 #include "../Inc/main.h"
 
+Remote remote;
 
 void init(){
-    remote = Remote();
     remote.init();
 }
