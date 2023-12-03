@@ -2,7 +2,7 @@
 // Created by wfrfred on 2023/12/2.
 //
 
-#include "../Inc/main.h"
+#include "../Inc/init.h"
 
 Remote remote;
 

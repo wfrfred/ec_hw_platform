@@ -29,7 +29,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "../../UserCode/Inc/main.h"
+#include "../../UserCode/Inc/init.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -97,7 +97,7 @@ int main(void)
   MX_ADC3_Init();
   MX_CAN1_Init();
   MX_CAN2_Init();
-  MX_IWDG_Init();
+  //MX_IWDG_Init();
   MX_SPI1_Init();
   MX_TIM1_Init();
   MX_TIM3_Init();
@@ -119,7 +119,6 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

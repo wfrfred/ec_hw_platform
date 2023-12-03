@@ -59,6 +59,8 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define SP1_CLK_Pin GPIO_PIN_3
 #define SP1_CLK_GPIO_Port GPIOB
+#define UART3_RX_Pin GPIO_PIN_11
+#define UART3_RX_GPIO_Port GPIOC
 #define LED_R_Pin GPIO_PIN_12
 #define LED_R_GPIO_Port GPIOH
 #define ADC_BAT_Pin GPIO_PIN_10
