@@ -3,9 +3,14 @@
 //
 
 #ifndef EC_HW_PLATFORM_PID_H
+
+struct PIDInitTypeDef{
+    float kp, ki, kd, i_max, out_max;
+};
+
 class PID {
 public:
-    PID(float kp, float ki, float kd, float i_max, float out_max);
+    PID(PIDInitTypeDef pidInitTypeDef);
     float cal(float ref_, float fdb_);
 private:
     float kp, ki, kd;

@@ -15,8 +15,13 @@ inline float limit(float x, float max, float min) {
     }
 }
 
-PID::PID(float kp, float ki, float kd, float i_max, float out_max) : kp(kp), ki(ki), kd(kd), i_max(i_max),
-                                                                     out_max(out_max) {};
+PID::PID(PIDInitTypeDef pidInitTypeDef) {
+    kp = pidInitTypeDef.kp;
+    ki = pidInitTypeDef.ki;
+    kd = pidInitTypeDef.kd;
+    i_max = pidInitTypeDef.i_max;
+    out_max = pidInitTypeDef.out_max;
+};
 
 float  PID::cal(float ref_, float fdb_) {
     ref = ref_;
