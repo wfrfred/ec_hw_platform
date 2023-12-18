@@ -3,6 +3,7 @@
 //
 
 #include "../Inc/init.h"
+#include "../Inc/RemoteControl.h"
 
 Remote remote;
 

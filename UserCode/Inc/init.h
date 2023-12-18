@@ -5,10 +5,15 @@
 #ifndef EC_HW_PLATFORM_INIT_H
 #define EC_HW_PLATFORM_INIT_H
 
-#include "../Inc/RemoteControl.h"
 
-extern Remote remote;
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 void init();
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif //EC_HW_PLATFORM_INIT_H

@@ -41,13 +41,4 @@ ec_hw_platform/callback.o: ..\UserCode\Src\CallBack.cpp \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h \
-  ..\UserCode\Src\..\Inc\init.h \
-  ..\UserCode\Src\..\Inc\..\Inc\RemoteControl.h \
-  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\cinttypes \
-  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__assert \
-  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__verbose_abort \
-  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__availability \
-  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\cstdint \
-  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\inttypes.h \
-  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\inttypes.h \
-  ..\Core\Inc\iwdg.h
+  ..\Core\Inc\iwdg.h ..\UserCode\Src\..\Inc\RemoteControl.h

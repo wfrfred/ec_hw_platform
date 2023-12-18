@@ -1,15 +1,8 @@
 ec_hw_platform/remotecontrol.o: ..\UserCode\Src\RemoteControl.cpp \
   ..\UserCode\Src\..\Inc\RemoteControl.h \
-  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\cinttypes \
-  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__assert \
-  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__config \
-  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__verbose_abort \
-  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__availability \
-  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\cstdint \
   D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\stdint.h \
+  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__config \
   D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
-  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\inttypes.h \
-  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\inttypes.h \
   ..\Core\Inc\usart.h ..\Core\Inc\main.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
   ..\Core\Inc\stm32f4xx_hal_conf.h \

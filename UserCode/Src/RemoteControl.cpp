@@ -3,11 +3,12 @@
 //
 #include "../Inc/RemoteControl.h"
 
-uint8_t remote_data[18];
 
 float normalize(uint16_t input) {
     return ((float) input - MID_VALUE) / (MID_VALUE - MIN_VALUE);
 }
+
+Remote::Remote() = default;
 
 void Remote::init() {
     for (auto &channel: channels) {
@@ -15,17 +16,17 @@ void Remote::init() {
     }
     switches[0] = MID;
     switches[1] = MID;
-    HAL_UARTEx_ReceiveToIdle_DMA(&huart3, remote_data,18);
+    HAL_UART_Receive_DMA(&huart3,remote_data,18u);
 }
 
-void Remote::handle(const uint8_t rx_data[]) {
-    channels[0] = rx_data[0] | (rx_data[1] << 8) & 0x07ff;
-    channels[1] = (rx_data[1] >> 3) | (rx_data[2] << 5) & 0x07ff;
-    channels[2] = (rx_data[2] >> 6) | (rx_data[3] << 2) | (rx_data[4] << 10) & 0x07ff;
-    channels[3] = (rx_data[4] >> 1) | (rx_data[5] << 4) & 0x07ff;
+void Remote::handle() {
+    channels[0] = remote_data[0] | (remote_data[1] << 8) & 0x07ff;
+    channels[1] = (remote_data[1] >> 3) | (remote_data[2] << 5) & 0x07ff;
+    channels[2] = (remote_data[2] >> 6) | (remote_data[3] << 2) | (remote_data[4] << 10) & 0x07ff;
+    channels[3] = (remote_data[4] >> 1) | (remote_data[5] << 7) & 0x07ff;
 
-    switches[0] = static_cast<switchPosition>(rx_data[5] >> 4 & 0x0003);
-    switches[0] = static_cast<switchPosition>(rx_data[5] >> 6 & 0x0003);
+    switches[0] = static_cast<switchPosition>(remote_data[5] >> 4 & 0x0003);
+    switches[1] = static_cast<switchPosition>(remote_data[5] >> 6 & 0x0003);
 }
 
 void Remote::stop() {
