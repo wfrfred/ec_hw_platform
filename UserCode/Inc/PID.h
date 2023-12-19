@@ -10,8 +10,9 @@ struct PIDInitTypeDef{
 
 class PID {
 public:
-    PID(PIDInitTypeDef pidInitTypeDef);
+    PID(const PIDInitTypeDef& pidInitTypeDef);
     float cal(float ref_, float fdb_);
+    void reset();
 private:
     float kp, ki, kd;
     float i_max, out_max;
