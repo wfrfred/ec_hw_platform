@@ -4,8 +4,8 @@
 
 #include "../../Inc/Motor/Motor.h"
 
-Motor::Motor(const Motor::Type &type, const float &ratio, const Motor::ControlMethod &method, const PID &ppid,
-             const PID &spid) : info(MotorInfo{type, ratio}), method(method), ppid(ppid), spid(spid) {
+Motor::Motor(const Motor::Type& type, const float& ratio, const Motor::ControlMethod& method, const PID& ppid,
+             const PID& spid) : info(MotorInfo{type, ratio}), method(method), ppid(ppid), spid(spid) {
     reset();
 }
 
@@ -19,20 +19,24 @@ void Motor::reset() {
     motor_data = MotorData{0, 0, 0, 0, 0, 0};
 }
 
-void Motor::setAngle(const float &target_angle_) {
+void Motor::setAngle(const float& target_angle_) {
     target_angle = target_angle_;
 }
 
-void Motor::setSpeed(const float &target_speed_) {
+void Motor::setSpeed(const float& target_speed_) {
     target_speed = target_speed_;
 }
 
-void Motor::setMode(const Mode &mode_) {
+void Motor::setMode(const Mode& mode_) {
     mode = mode_;
 }
 
 int16_t Motor::getIntensity() {
     return intensity;
+}
+
+void Motor::updateData(const MotorData& motorData) {
+    motor_data = motorData;
 }
 
 void Motor::handle() {

@@ -8,6 +8,15 @@
 #include "stdint.h"
 #include "../PID.h"
 
+struct MotorData {
+    float angle;// 减速后的输出端角度
+    float ecd_angle;// 编码器角度 C620:0->8191 ~ 0->360degree
+    float last_ecd_angle;
+    float rotate_speed;// 减速后的输出端转速
+    float current;// 转矩电流
+    float ot;// 电机温度
+}
+
 class Motor {
 public:
     enum Type {
@@ -26,7 +35,7 @@ public:
     };
 
 public:
-    Motor(const Type &type, const float &ratio, const ControlMethod &method, const PID &ppid, const PID &spid);
+    Motor(const Type& type, const float& ratio, const ControlMethod& method, const PID& ppid, const PID& spid);
 
     // 重置电机所有状态
     void reset();
@@ -35,14 +44,16 @@ public:
     void handle();
 
     // 设置目标角度
-    void setAngle(const float &target_angle_);
+    void setAngle(const float& target_angle_);
 
     // 设置目标速度
-    void setSpeed(const float &target_speed_);
+    void setSpeed(const float& target_speed_);
 
-    void setMode(const Mode &mode_);
+    void setMode(const Mode& mode_);
 
     int16_t getIntensity();
+
+    void updateData(const MotorData& motorData);
 
 private:
     struct MotorInfo {
@@ -53,14 +64,7 @@ private:
     ControlMethod method;
     int16_t intensity{};// 控制量 C620:-16384->16384 ~ -20->20A
     float target_angle{}, target_speed{};// 期望角度、速度
-    struct MotorData {
-        float angle;// 减速后的输出端角度
-        float ecd_angle;// 编码器角度 C620:0->8191 ~ 0->360degree
-        float last_ecd_angle;
-        float rotate_speed;// 减速后的输出端转速
-        float current;// 转矩电流
-        float ot;// 电机温度
-    } motor_data{};
+    MotorData motor_data{};
     PID ppid, spid;
 };
 
