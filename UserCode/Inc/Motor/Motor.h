@@ -6,7 +6,7 @@
 #define EC_HW_PLATFORM_MOTOR_H
 
 #include "stdint.h"
-#include "PID.h"
+#include "../PID.h"
 
 class Motor {
 public:
@@ -42,6 +42,8 @@ public:
 
     void setMode(const Mode &mode_);
 
+    int16_t getIntensity();
+
 private:
     struct MotorInfo {
         Type type;
@@ -49,8 +51,8 @@ private:
     } info;
     Mode mode;
     ControlMethod method;
-    int16_t intensity;// 控制量 C620:-16384->16384 ~ -20->20A
-    float target_angle, target_speed;// 期望角度、速度
+    int16_t intensity{};// 控制量 C620:-16384->16384 ~ -20->20A
+    float target_angle{}, target_speed{};// 期望角度、速度
     struct MotorData {
         float angle;// 减速后的输出端角度
         float ecd_angle;// 编码器角度 C620:0->8191 ~ 0->360degree
@@ -58,7 +60,7 @@ private:
         float rotate_speed;// 减速后的输出端转速
         float current;// 转矩电流
         float ot;// 电机温度
-    } motor_data;
+    } motor_data{};
     PID ppid, spid;
 };
 

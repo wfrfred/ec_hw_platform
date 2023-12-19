@@ -2,7 +2,7 @@
 // Created by wfrfred on 2023/12/18.
 //
 
-#include "../Inc/Motor.h"
+#include "../../Inc/Motor/Motor.h"
 
 Motor::Motor(const Motor::Type &type, const float &ratio, const Motor::ControlMethod &method, const PID &ppid,
              const PID &spid) : info(MotorInfo{type, ratio}), method(method), ppid(ppid), spid(spid) {
@@ -31,6 +31,10 @@ void Motor::setMode(const Mode &mode_) {
     mode = mode_;
 }
 
+int16_t Motor::getIntensity() {
+    return intensity;
+}
+
 void Motor::handle() {
     switch (mode) {
         case WORKING:
@@ -52,4 +56,5 @@ void Motor::handle() {
             intensity = 0;
             break;
     }
+    intensity *= info.ratio > 0 ? 1 : -1; //若减速比为负数（其实我不知道为什么减速比可以为负数。。） 则让输出方向取反
 }

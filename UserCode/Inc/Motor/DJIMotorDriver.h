@@ -1,0 +1,8 @@
+//
+// Created by wfrfred on 2023/12/19.
+//
+
+#ifndef EC_HW_PLATFORM_DJIMOTORDRIVER_H
+#define EC_HW_PLATFORM_DJIMOTORDRIVER_H
+
+#endif //EC_HW_PLATFORM_DJIMOTORDRIVER_H
