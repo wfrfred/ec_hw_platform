@@ -52,6 +52,7 @@ void DJIMotorDriver::CanMessageUnpack(CAN_HandleTypeDef* hcan, CAN_RxHeaderTypeD
 }
 
 void DJIMotorDriver::CanMessageTransmit(CAN_HandleTypeDef* hcan, CanIdRange id_range) {
+    uint32_t can_tx_mail_box_;
     CAN_TxHeaderTypeDef tx_header;
     uint8_t tx_data[8] = {0};
     Motor** motors = hcan == &hcan1 ? motors_1 : motors_2;
@@ -87,5 +88,5 @@ void DJIMotorDriver::CanMessageTransmit(CAN_HandleTypeDef* hcan, CanIdRange id_r
         }
     }
 
-    HAL_CAN_AddTxMessage(hcan, &tx_header, tx_data, );
+    HAL_CAN_AddTxMessage(hcan, &tx_header, tx_data, &can_tx_mail_box_);
 }

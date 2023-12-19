@@ -4,13 +4,9 @@
 
 #ifndef EC_HW_PLATFORM_PID_H
 
-struct PIDInitTypeDef {
-    float kp, ki, kd, i_max, out_max;
-};
-
 class PID {
 public:
-    PID(const PIDInitTypeDef& pidInitTypeDef);
+    PID(float kp, float ki, float kd, float i_max, float out_max);
 
     float cal(float ref_, float fdb_);
 
