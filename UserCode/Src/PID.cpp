@@ -15,7 +15,7 @@ inline float limit(float x, float max, float min) {
     }
 }
 
-PID::PID(const PIDInitTypeDef &pidInitTypeDef) {
+PID::PID(const PIDInitTypeDef& pidInitTypeDef) {
     kp = pidInitTypeDef.kp;
     ki = pidInitTypeDef.ki;
     kd = pidInitTypeDef.kd;
@@ -39,7 +39,7 @@ float PID::cal(float ref_, float fdb_) {
     return output;
 }
 
-void PID::reset(){
+void PID::reset() {
     ref = 0;
     fdb = 0;
     err = 0;

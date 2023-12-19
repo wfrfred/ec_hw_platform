@@ -2,6 +2,7 @@
 // Created by wfrfred on 2023/12/18.
 //
 
+#include "cmath"
 #include "../../Inc/Motor/Motor.h"
 
 Motor::Motor(const Motor::Type& type, const float& ratio, const Motor::ControlMethod& method, const PID& ppid,
@@ -35,8 +36,9 @@ int16_t Motor::getIntensity() {
     return intensity;
 }
 
-void Motor::updateData(const MotorData& motorData) {
-    motor_data = motorData;
+MotorData& Motor::getMotorData() {
+    MotorData& ref = motor_data;
+    return ref;
 }
 
 void Motor::handle() {
@@ -44,7 +46,15 @@ void Motor::handle() {
         case WORKING:
             switch (method) {
                 case POSITION_SPEED:
-                    target_speed = info.ratio * ppid.cal(target_angle, motor_data.angle);
+                {
+                    float angle = fmodf(motor_data.angle, 360);
+                    if (angle - target_angle > 180) {
+                        angle -= 360;
+                    } else if (target_angle - angle > 180) {
+                        angle += 360;
+                    }
+                    motor_data.rotate_speed = ppid.cal(target_angle, angle);
+                }
                     intensity = spid.cal(target_speed, motor_data.rotate_speed);
                     break;
                 case SPEED:
@@ -60,5 +70,4 @@ void Motor::handle() {
             intensity = 0;
             break;
     }
-    intensity *= info.ratio > 0 ? 1 : -1; //若减速比为负数（其实我不知道为什么减速比可以为负数。。） 则让输出方向取反
 }
