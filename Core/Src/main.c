@@ -97,7 +97,7 @@ int main(void)
   MX_ADC3_Init();
   MX_CAN1_Init();
   MX_CAN2_Init();
-  //MX_IWDG_Init();
+  MX_IWDG_Init();
   MX_SPI1_Init();
   MX_TIM1_Init();
   MX_TIM3_Init();
