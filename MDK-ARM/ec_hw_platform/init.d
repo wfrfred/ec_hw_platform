@@ -41,4 +41,9 @@ ec_hw_platform/init.o: ..\UserCode\Src\init.cpp \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
-  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h
+  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h \
+  ..\UserCode\Src\..\Inc\Motor\MotorController.h \
+  ..\UserCode\Src\..\Inc\Motor\Motor.h \
+  ..\UserCode\Src\..\Inc\Motor\..\PID.h \
+  ..\UserCode\Src\..\Inc\Motor\DJIMotorDriver.h ..\Core\Inc\can.h \
+  ..\Core\Inc\tim.h

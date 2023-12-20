@@ -4,6 +4,7 @@
 
 #include "cmath"
 #include "../../Inc/Motor/Motor.h"
+#include "../../Inc/Math.h"
 
 Motor::Motor(const Motor::Type& type, const float& ratio, const Motor::ControlMethod& method, const PID& ppid,
              const PID& spid) : info(MotorInfo{type, ratio}), method(method), ppid(ppid), spid(spid) {
@@ -46,15 +47,8 @@ void Motor::handle() {
         case WORKING:
             switch (method) {
                 case POSITION_SPEED:
-                {
-                    float angle = fmodf(motor_data.angle, 360);
-                    if (angle - target_angle > 180) {
-                        angle -= 360;
-                    } else if (target_angle - angle > 180) {
-                        angle += 360;
-                    }
-                    motor_data.rotate_speed = ppid.cal(target_angle, angle);
-                }
+                    motor_data.rotate_speed = ppid.cal(target_angle,
+                                                       target_angle + angleDifference(motor_data.angle, target_angle));
                     intensity = spid.cal(target_speed, motor_data.rotate_speed);
                     break;
                 case SPEED:
@@ -70,4 +64,6 @@ void Motor::handle() {
             intensity = 0;
             break;
     }
+    if(intensity > 1000) intensity = 1000;
+    if(intensity < -1000) intensity = -1000;
 }

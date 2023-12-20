@@ -4,8 +4,9 @@
 
 #include "../Inc/init.h"
 #include "../Inc/RemoteControl.h"
-#include "../Inc/Motor/DJIMotorDriver.h"
+#include "../Inc/Motor/MotorController.h"
 #include "can.h"
+#include "tim.h"
 
 Remote remote;
 
@@ -15,9 +16,11 @@ void CAN_init();
 void init() {
     remote.init();
     CAN_init();
+    motorsInit();
+    HAL_TIM_Base_Start_IT(&htim7);
 }
 
-void CAN_init(){
+void CAN_init() {
     CAN_FilterTypeDef filter;
     filter.FilterActivation = ENABLE;
     filter.FilterMode = CAN_FILTERMODE_IDMASK;
@@ -38,8 +41,4 @@ void CAN_init(){
     HAL_CAN_ConfigFilter(&hcan2, &filter);
     HAL_CAN_Start(&hcan2);
     HAL_CAN_ActivateNotification(&hcan2, CAN_IT_RX_FIFO0_MSG_PENDING);
-}
-
-void motor_init(){
-
 }

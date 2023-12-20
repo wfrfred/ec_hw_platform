@@ -11,12 +11,12 @@ float normalize(uint16_t input) {
 Remote::Remote() = default;
 
 void Remote::init() {
-    for (auto &channel: channels) {
+    for (auto& channel: channels) {
         channel = 0;
     }
     switches[0] = MID;
     switches[1] = MID;
-    HAL_UART_Receive_DMA(&huart3,remote_data,18u);
+    HAL_UART_Receive_DMA(&huart3, remote_data, 18u);
 }
 
 void Remote::handle() {
@@ -30,7 +30,7 @@ void Remote::handle() {
 }
 
 void Remote::stop() {
-    for (auto &channel: channels) {
+    for (auto& channel: channels) {
         channel = 0;
     }
     switches[0] = MID;

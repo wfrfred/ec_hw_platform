@@ -395,6 +395,11 @@
           <GroupName>Application/User/Core</GroupName>
           <Files>
             <File>
+              <FileName>main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\main.c</FilePath>
+            </File>
+            <File>
               <FileName>gpio.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/gpio.c</FilePath>
@@ -494,11 +499,6 @@
               <FileName>stm32f4xx_hal_msp.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/stm32f4xx_hal_msp.c</FilePath>
-            </File>
-            <File>
-              <FileName>main.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Core\Src\main.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -645,6 +645,31 @@
               <FileType>8</FileType>
               <FilePath>..\UserCode\Src\RemoteControl.cpp</FilePath>
             </File>
+            <File>
+              <FileName>PID.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\UserCode\Src\PID.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>DJIMotorDriver.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\UserCode\Src\Motor\DJIMotorDriver.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Motor.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\UserCode\Src\Motor\Motor.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>MotorController.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\UserCode\Src\Motor\MotorController.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Math.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\UserCode\Src\Math.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -688,12 +713,6 @@
     <files>
       <file attr="config" category="source" condition="STM32F407xx_ARMCC" name="Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f407xx.s" version="2.6.2">
         <instance index="0" removed="1">RTE\Device\STM32F407IGHx\startup_stm32f407xx.s</instance>
-        <component Cclass="Device" Cgroup="Startup" Cvendor="Keil" Cversion="2.6.3" condition="STM32F4 CMSIS"/>
-        <package name="STM32F4xx_DFP" schemaVersion="1.7.2" url="http://www.keil.com/pack/" vendor="Keil" version="2.16.0"/>
-        <targetInfos/>
-      </file>
-      <file attr="config" category="source" name="Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c" version="2.6.3">
-        <instance index="0" removed="1">RTE\Device\STM32F407IGHx\system_stm32f4xx.c</instance>
         <component Cclass="Device" Cgroup="Startup" Cvendor="Keil" Cversion="2.6.3" condition="STM32F4 CMSIS"/>
         <package name="STM32F4xx_DFP" schemaVersion="1.7.2" url="http://www.keil.com/pack/" vendor="Keil" version="2.16.0"/>
         <targetInfos/>

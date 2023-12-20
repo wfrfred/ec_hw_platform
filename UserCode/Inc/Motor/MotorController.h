@@ -8,8 +8,16 @@
 #include "Motor.h"
 #include "DJIMotorDriver.h"
 
-extern DJIMotorDriver DJIMotorDriver;
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-void motorsLoop();
+void motorsLoop(void);
+
+void motorsInit(void);
+
+#ifdef __cplusplus
+};
+#endif
 
 #endif //EC_HW_PLATFORM_MOTORCONTROLLER_H

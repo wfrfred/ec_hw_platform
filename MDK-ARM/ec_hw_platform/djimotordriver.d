@@ -1,15 +1,23 @@
-ec_hw_platform/callback.o: ..\UserCode\Src\CallBack.cpp \
-  ..\Core\Inc\usart.h ..\Core\Inc\main.h \
-  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
+ec_hw_platform/djimotordriver.o: ..\UserCode\Src\Motor\DJIMotorDriver.cpp \
+  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\cstring \
+  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__assert \
+  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__config \
+  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__verbose_abort \
+  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__availability \
+  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\string.h \
+  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h \
+  ..\UserCode\Src\Motor\..\..\Inc\Motor\DJIMotorDriver.h \
+  ..\UserCode\Src\Motor\..\..\Inc\Motor\Motor.h \
+  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\stdint.h \
+  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  ..\UserCode\Src\Motor\..\..\Inc\Motor\..\PID.h ..\Core\Inc\can.h \
+  ..\Core\Inc\main.h ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
   ..\Core\Inc\stm32f4xx_hal_conf.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h \
   ..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h \
   ..\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h \
   ..\Drivers\CMSIS\Include\core_cm4.h \
-  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\stdint.h \
-  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__config \
-  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
   ..\Drivers\CMSIS\Include\cmsis_version.h \
   ..\Drivers\CMSIS\Include\cmsis_compiler.h \
   ..\Drivers\CMSIS\Include\cmsis_armclang.h \
@@ -41,8 +49,4 @@ ec_hw_platform/callback.o: ..\UserCode\Src\CallBack.cpp \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h \
-  ..\Core\Inc\iwdg.h ..\UserCode\Src\..\Inc\RemoteControl.h \
-  ..\UserCode\Src\..\Inc\Motor\MotorController.h \
-  ..\UserCode\Src\..\Inc\Motor\Motor.h \
-  ..\UserCode\Src\..\Inc\Motor\..\PID.h \
-  ..\UserCode\Src\..\Inc\Motor\DJIMotorDriver.h ..\Core\Inc\can.h
+  ..\UserCode\Src\Motor\..\..\Inc\Math.h

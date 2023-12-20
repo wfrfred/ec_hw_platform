@@ -4,15 +4,8 @@
 
 #include <cstring>
 #include "../../Inc/Motor/DJIMotorDriver.h"
+#include "../../Inc/Math.h"
 #include "can.h"
-
-inline float ecd2deg(uint16_t ecd) {
-    return (float) ecd * 360.0f / (float) ECD_MAX;
-}
-
-inline float rpm2dps(uint16_t rpm) {
-    return (float) rpm * 6.0f;
-}
 
 DJIMotorDriver::DJIMotorDriver(Motor* motors_1_[11], Motor* motors_2_[11]) {
     memcpy(motors_1, motors_1_, sizeof(motors_1));
@@ -27,16 +20,21 @@ void DJIMotorDriver::CanMessageUnpack(CAN_HandleTypeDef* hcan, CAN_RxHeaderTypeD
     if (!ifDJIMotorMessage(rx_header)) {
         return;
     }
-    Motor* motor;
+    Motor* motor = nullptr;
     uint8_t id = rx_header->StdId - 0x200;
+
     if (hcan == &hcan1) {
         motor = motors_1[id - 1];
     } else if (hcan == &hcan2) {
         motor = motors_2[id - 1];
     }
 
+    if(motor == nullptr){
+        return;
+    }
+
     RawData rawData = {
-            .ecd = (uint16_t) (rx_data[0] << 8 | rx_data[1]),
+            .ecd = (int16_t) (rx_data[0] << 8 | rx_data[1]),
             .rotateSpeed = (int16_t) (rx_data[2] << 8 | rx_data[3]),
             .current = (int16_t) (rx_data[4] << 8 | rx_data[5]),
             .temp = rx_data[6]
@@ -44,7 +42,7 @@ void DJIMotorDriver::CanMessageUnpack(CAN_HandleTypeDef* hcan, CAN_RxHeaderTypeD
 
     MotorData& motorData = motor->getMotorData();
     motorData.ecd_angle = ecd2deg(rawData.ecd);
-    motorData.angle += (motorData.ecd_angle - motorData.last_ecd_angle) / motor->info.ratio;
+    motorData.angle += angleDifference(motorData.ecd_angle, motorData.last_ecd_angle) / motor->info.ratio;
     motorData.last_ecd_angle = motorData.ecd_angle;
     motorData.rotate_speed = rpm2dps(rawData.rotateSpeed) / motor->info.ratio;
     motorData.current = rawData.current;
@@ -78,13 +76,12 @@ void DJIMotorDriver::CanMessageTransmit(CAN_HandleTypeDef* hcan, CanIdRange id_r
     }
 
     for (int i = 0; i < 4; ++i) {
-        if(motors[id + i] == nullptr){
-            tx_data[id + 2 * i] = 0;
-            tx_data[id + 2 * i + 1] = 0;
-            return;
+        if (motors[id + i] == nullptr) {
+            tx_data[2 * i] = 0;
+            tx_data[2 * i + 1] = 0;
         } else {
-            tx_data[id + 2 * i] = motors[id + i]->getIntensity() >> 8;
-            tx_data[id + 2 * i + 1] = motors[id + i]->getIntensity();
+            tx_data[2 * i] = motors[id + i]->getIntensity() >> 8;
+            tx_data[2 * i + 1] = motors[id + i]->getIntensity();
         }
     }
 
