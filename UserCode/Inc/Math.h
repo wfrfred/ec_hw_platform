@@ -15,6 +15,12 @@ float ecd2deg(int16_t ecd);
 
 float rpm2dps(int16_t rpm);
 
+/**
+ * @brief 求两个任意角度的差值
+ * @param angle_1 被减数
+ * @param angle_2 减数
+ * @return [-180, 180]
+ */
 float angleDifference(float angle_1, float angle_2);
 
 #endif //EC_HW_PLATFORM_MATH_H

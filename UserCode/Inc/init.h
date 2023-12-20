@@ -9,7 +9,9 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-
+/**
+ * @brief cpp入口函数
+ */
 void init();
 
 #ifdef __cplusplus
