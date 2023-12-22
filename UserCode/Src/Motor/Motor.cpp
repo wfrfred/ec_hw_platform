@@ -26,7 +26,7 @@ void Motor::setAngle(const float& target_angle_) {
 }
 
 void Motor::setSpeed(const float& target_speed_) {
-    target_speed = target_speed_;
+    target_speed = target_speed_ * info.ratio;
 }
 
 void Motor::setMode(const Mode& mode_) {

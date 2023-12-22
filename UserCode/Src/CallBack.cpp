@@ -33,7 +33,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim) {
         //HAL_GPIO_WritePin(LED_G_GPIO_Port,LED_G_Pin,GPIO_PIN_SET);
 			++i;
         if (remote.getSwitches(1) != Remote::DOWN) {
-            chassis.setVelocities(remote.getChannel(3) * 100, remote.getChannel(2) * 100, remote.getChannel(0) * 200);
+            chassis.setVelocities(remote.getChannel(3) * 3, remote.getChannel(2) * 3, remote.getChannel(0) * 180);
             chassis.handle();
             motorsLoop();
         } else {
