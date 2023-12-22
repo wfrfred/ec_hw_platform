@@ -11,10 +11,10 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+extern Motor* motors_1[];
+extern Motor* motors_2[];
 
 void motorsLoop(void);
-
-void motorsInit(void);
 
 #ifdef __cplusplus
 };

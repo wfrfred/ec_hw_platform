@@ -1,10 +1,14 @@
-ec_hw_platform/init.o: ..\UserCode\Src\init.cpp \
-  ..\UserCode\Src\..\Inc\init.h ..\UserCode\Src\..\Inc\RemoteControl.h \
+ec_hw_platform/onmiwheelchassis.o: ..\UserCode\Src\OnmiWheelChassis.cpp \
+  ..\UserCode\Src\..\Inc\OnmiWheelChassis.h \
+  ..\UserCode\Src\..\Inc\Chassis.h \
+  ..\UserCode\Src\..\Inc\Motor\MotorController.h \
+  ..\UserCode\Src\..\Inc\Motor\Motor.h \
   D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\stdint.h \
   D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__config \
   D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
-  ..\Core\Inc\usart.h ..\Core\Inc\main.h \
-  ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
+  ..\UserCode\Src\..\Inc\Motor\..\PID.h \
+  ..\UserCode\Src\..\Inc\Motor\DJIMotorDriver.h ..\Core\Inc\can.h \
+  ..\Core\Inc\main.h ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
   ..\Core\Inc\stm32f4xx_hal_conf.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rcc.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_def.h \
@@ -42,9 +46,15 @@ ec_hw_platform/init.o: ..\UserCode\Src\init.cpp \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_uart.h \
-  ..\UserCode\Src\..\Inc\Motor\MotorController.h \
-  ..\UserCode\Src\..\Inc\Motor\Motor.h \
-  ..\UserCode\Src\..\Inc\Motor\..\PID.h \
-  ..\UserCode\Src\..\Inc\Motor\DJIMotorDriver.h ..\Core\Inc\can.h \
-  ..\Core\Inc\tim.h ..\UserCode\Src\..\Inc\OnmiWheelChassis.h \
-  ..\UserCode\Src\..\Inc\Chassis.h
+  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\initializer_list \
+  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__assert \
+  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__verbose_abort \
+  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__availability \
+  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\cstddef \
+  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__type_traits\enable_if.h \
+  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__type_traits\integral_constant.h \
+  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__type_traits\is_integral.h \
+  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__type_traits\remove_cv.h \
+  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__type_traits\remove_const.h \
+  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__type_traits\remove_volatile.h \
+  D:\program\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\version

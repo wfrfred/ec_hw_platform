@@ -7,16 +7,17 @@
 #include "../Inc/Motor/MotorController.h"
 #include "can.h"
 #include "tim.h"
+#include "../Inc/OnmiWheelChassis.h"
 
 Remote remote;
-
+OnmiWheelChassis chassis(motors_1[0], motors_1[1], motors_1[2], motors_1[3]);
 
 void CAN_init();
 
 void init() {
     remote.init();
+    chassis.init();
     CAN_init();
-    motorsInit();
     HAL_TIM_Base_Start_IT(&htim7);
 }
 

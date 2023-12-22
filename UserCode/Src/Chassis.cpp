@@ -5,11 +5,11 @@
 #include "../Inc/Chassis.h"
 
 void Chassis::init() {
-    stopFlag = false;
+    stopFlag = true;
 }
 
 void Chassis::stop() {
-    stopFlag = true;
+    stopFlag = false;
 }
 
 void Chassis::setVelocities(float fb_, float lr_, float rt_) {

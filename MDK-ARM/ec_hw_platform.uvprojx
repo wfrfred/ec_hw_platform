@@ -670,6 +670,16 @@
               <FileType>8</FileType>
               <FilePath>..\UserCode\Src\Math.cpp</FilePath>
             </File>
+            <File>
+              <FileName>Chassis.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\UserCode\Src\Chassis.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>OnmiWheelChassis.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\UserCode\Src\OnmiWheelChassis.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

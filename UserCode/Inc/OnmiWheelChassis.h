@@ -12,13 +12,13 @@ class OnmiWheelChassis : public Chassis {
 public:
     OnmiWheelChassis(Motor* motorFL_, Motor* motorFR_, Motor* motorBL_, Motor* motorBR_);
 
-    void init();
+    void init() override;
 
-    void handle();
+    void handle() override;
 
-    void stop();
+    void stop() override;
 
-    const float R_CHASSIS = 20;//cm
+    const float R_CHASSIS = 25;//cm
 
     const float R_WHEEL = 5;//cm
 private:
