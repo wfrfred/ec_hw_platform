@@ -2,12 +2,11 @@
 // Created by wfrfred on 2023/12/18.
 //
 
-#include "cmath"
 #include "../../Inc/Motor/Motor.h"
 #include "../../Inc/Math.h"
 
 Motor::Motor(const Motor::Type& type, const float& ratio, const Motor::ControlMethod& method, const PID& ppid,
-             const PID& spid) : info(MotorInfo{type, ratio}), method(method), ppid(ppid), spid(spid) {
+             const PID& spid) : info({type, ratio}), method(method), ppid(ppid), spid(spid) {
     reset();
 }
 
@@ -64,6 +63,4 @@ void Motor::handle() {
             intensity = 0;
             break;
     }
-    if(intensity > 1000) intensity = 1000;
-    if(intensity < -1000) intensity = -1000;
 }

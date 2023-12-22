@@ -8,17 +8,17 @@
 
 extern Remote remote;
 
-Motor motor_1(Motor::M3508, 3591.f / 187.f, Motor::SPEED,
-              PID(10, 1, 0, 0, 100),
-              PID(40, 1, 1, 1000, 1000));
-							
+Motor motor_1(Motor::M3508, 1, Motor::SPEED,
+              PID(60, 0, 0, 0, 320),
+              PID(40, 1, 1, 1000, 1200));
+
 Motor motor_2(Motor::M3508, 3591.f / 187.f, Motor::SPEED,
               PID(10, 1, 0, 0, 100),
-              PID(40, 1, 1, 1000, 1000));
+              PID(40, 1, 10, 1000, 1000));
 
 
 Motor* motors_1[11] = {
-        &motor_2,
+        nullptr,
         nullptr,
         nullptr,
         nullptr,
@@ -50,7 +50,6 @@ DJIMotorDriver djiMotorDriver(motors_1, motors_2);
 void motorsLoop(void) {
     for (auto motor: motors_1) {
         if (motor != nullptr) {
-            motor->setSpeed(remote.getChannel(0)*200);
             motor->handle();
         }
     }
@@ -59,11 +58,11 @@ void motorsLoop(void) {
             motor->handle();
         }
     }
-		djiMotorDriver.CanMessageTransmit(&hcan1, ID_1_4);
+    djiMotorDriver.CanMessageTransmit(&hcan1, ID_1_4);
     djiMotorDriver.CanMessageTransmit(&hcan1, ID_5_8);
 }
 
 void motorsInit(void) {
     motor_1.setMode(Motor::WORKING);
-	  motor_2.setMode(Motor::WORKING);
+    motor_2.setMode(Motor::WORKING);
 }
