@@ -5,9 +5,9 @@
 
 
 float normalize(uint16_t input) {
-    if(input > MAX_VALUE || input < MIN_VALUE){
+    if (input > MAX_VALUE || input < MIN_VALUE) {
         return 0;
-    }else {
+    } else {
         return ((float) input - MID_VALUE) / (MID_VALUE - MIN_VALUE);
     }
 }

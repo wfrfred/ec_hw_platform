@@ -34,12 +34,12 @@ void OnmiWheelChassis::handle() {
         br = (+K * fb - K * lr + R_CHASSIS / 100 * rt) / (R_WHEEL / 100);
 
         float max = fl;
-        for(float i : {fl,fr,bl,br}){
+        for (float i: {fl, fr, bl, br}) {
             max = max > i ? max : i;
         }
 
-        if(max > MAX_DPS){
-            for(float i : {fl,fr,bl,br}){
+        if (max > MAX_DPS) {
+            for (float i: {fl, fr, bl, br}) {
                 i *= MAX_DPS / max;
             }
         }

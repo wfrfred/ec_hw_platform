@@ -9,12 +9,12 @@
 extern Remote remote;
 
 Motor motor_fl(Motor::M3508, 14, Motor::SPEED,
-              PID(0, 0, 0, 0, 0),
-              PID(40, 1, 1, 1000, 1200));
+               PID(0, 0, 0, 0, 0),
+               PID(40, 1, 1, 1000, 1200));
 
 Motor motor_fr(Motor::M3508, 14, Motor::SPEED,
-              PID(0, 1, 0, 0, 0),
-              PID(40, 1, 10, 1000, 1000));
+               PID(0, 1, 0, 0, 0),
+               PID(40, 1, 10, 1000, 1000));
 
 Motor motor_bl(Motor::M3508, 14, Motor::SPEED,
                PID(0, 1, 0, 0, 0),

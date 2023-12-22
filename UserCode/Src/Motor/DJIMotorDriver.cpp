@@ -29,7 +29,7 @@ void DJIMotorDriver::CanMessageUnpack(CAN_HandleTypeDef* hcan, CAN_RxHeaderTypeD
         motor = motors_2[id - 1];
     }
 
-    if(motor == nullptr){
+    if (motor == nullptr) {
         return;
     }
 

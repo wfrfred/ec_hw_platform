@@ -8,7 +8,7 @@
 Motor::Motor(const Motor::Type& type, const float& ratio, const Motor::ControlMethod& method, const PID& ppid,
              const PID& spid) : info({type, ratio}), method(method), ppid(ppid), spid(spid) {
     reset();
-		mode = POWER_OFF;
+    mode = POWER_OFF;
 }
 
 void Motor::reset() {
@@ -61,7 +61,7 @@ void Motor::handle() {
             intensity = spid.cal(target_speed, motor_data.rotate_speed);
             break;
         case POWER_OFF:
-						reset();
+            reset();
             intensity = 0;
             break;
     }

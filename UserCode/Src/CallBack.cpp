@@ -12,11 +12,11 @@ extern "C"
 #include "usart.h"
 #include "iwdg.h"
 #include "../Inc/RemoteControl.h"
-	
+
 extern Remote remote;
 extern DJIMotorDriver djiMotorDriver;
 extern OnmiWheelChassis chassis;
-	
+
 int i = 0;
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef* huart) {
@@ -31,7 +31,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef* huart) {
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim) {
     if (htim->Instance == TIM7) {
         //HAL_GPIO_WritePin(LED_G_GPIO_Port,LED_G_Pin,GPIO_PIN_SET);
-			++i;
+        ++i;
         if (remote.getSwitches(1) != Remote::DOWN) {
             chassis.setVelocities(remote.getChannel(3) * 3, remote.getChannel(2) * 3, remote.getChannel(0) * 180);
             chassis.handle();
