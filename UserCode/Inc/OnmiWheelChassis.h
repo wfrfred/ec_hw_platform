@@ -18,11 +18,12 @@ public:
 
     void stop() override;
 
+    const float MAX_DPS = 360.0f * 4.0f;
+
     const float R_CHASSIS = 25;//cm
 
     const float R_WHEEL = 5;//cm
 private:
-
     Motor* motorFL;
     Motor* motorFR;
     Motor* motorBL;

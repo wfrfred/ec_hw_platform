@@ -37,6 +37,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim) {
             chassis.handle();
             motorsLoop();
         } else {
+            remote.stop();
             chassis.stop();
         }
     }

@@ -26,10 +26,28 @@ void OnmiWheelChassis::stop() {
 
 void OnmiWheelChassis::handle() {
     if (stopFlag) {
-        motorFL->setSpeed((+K * fb + K * lr + R_CHASSIS / 100 * rt) / (R_WHEEL / 100));
-        motorFR->setSpeed((-K * fb + K * lr + R_CHASSIS / 100 * rt) / (R_WHEEL / 100));
-        motorBL->setSpeed((-K * fb - K * lr + R_CHASSIS / 100 * rt) / (R_WHEEL / 100));
-        motorBR->setSpeed((+K * fb - K * lr + R_CHASSIS / 100 * rt) / (R_WHEEL / 100));
+        float fl, fr, bl, br;
+
+        fl = (+K * fb + K * lr + R_CHASSIS / 100 * rt) / (R_WHEEL / 100);
+        fr = (-K * fb + K * lr + R_CHASSIS / 100 * rt) / (R_WHEEL / 100);
+        bl = (-K * fb - K * lr + R_CHASSIS / 100 * rt) / (R_WHEEL / 100);
+        br = (+K * fb - K * lr + R_CHASSIS / 100 * rt) / (R_WHEEL / 100);
+
+        float max = fl;
+        for(float i : {fl,fr,bl,br}){
+            max = max > i ? max : i;
+        }
+
+        if(max > MAX_DPS){
+            for(float i : {fl,fr,bl,br}){
+                i *= MAX_DPS / max;
+            }
+        }
+
+        motorFL->setSpeed(fl);
+        motorFR->setSpeed(fr);
+        motorBL->setSpeed(bl);
+        motorBR->setSpeed(br);
     } else {
         motorFL->setSpeed(0);
         motorFR->setSpeed(0);
