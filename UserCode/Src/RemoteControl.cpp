@@ -5,7 +5,11 @@
 
 
 float normalize(uint16_t input) {
-    return ((float) input - MID_VALUE) / (MID_VALUE - MIN_VALUE);
+    if(input > MAX_VALUE || input < MIN_VALUE){
+        return 0;
+    }else {
+        return ((float) input - MID_VALUE) / (MID_VALUE - MIN_VALUE);
+    }
 }
 
 Remote::Remote() = default;
