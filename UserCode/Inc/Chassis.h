@@ -15,6 +15,12 @@ public:
 
     virtual void stop();
 
+    /**
+     * @brief 设定底盘速度
+     * @param fb_ m/s
+     * @param lr_ m/s
+     * @param rt_ dps
+     */
     void setVelocities(float fb_, float lr_, float rt_);
 
 protected:

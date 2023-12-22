@@ -18,9 +18,9 @@ public:
 
     void stop();
 
-    const float R_CHASSIS = 20;
+    const float R_CHASSIS = 20;//cm
 
-    const float R_WHEEL = 5;
+    const float R_WHEEL = 5;//cm
 private:
 
     Motor* motorFL;
